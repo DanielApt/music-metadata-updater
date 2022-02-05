@@ -69,9 +69,6 @@ async function identifySample(sampleFilePath: string): Promise<AuddResponse> {
     return audd.recognize.fromFile(sampleFilePath)
 }
 
-// createTmpDirectory().then(result => tmpDirectory = result);
-
-
 async function addAuddMetadataToFile(originalFilePath: string, metadata: AuddResult) {
     const { artist, title, album, label, release_date } = metadata;
 
@@ -96,38 +93,6 @@ async function createTmpDirectory() {
 
     return fs.mkdtemp(path.join(os.tmpdir(), 'music-info-updater'));
 }
-
-/*
-function createSamples(audioFilePath: string) {
-    return new Promise((resolve, reject) => {
-        const filePath = path.join(INPUT_DIRECTORY, file);
-        const outputFilePath = path.join(tmpDirectory, file);
-
-        ffmpeg(filePath)
-            .inputOption('-t 20') // 20 seconds
-            .output(outputFilePath)
-            .on('end', () => {
-                console.log(`Created 20 second sample: ${outputFilePath}`);
-                return resolve(outputFilePath)
-            })
-            .on('error', error => reject(error))
-            .run()
-    })
-}
-
-function updateMetadata(audioFilePath: string) {
-    const data = {
-        artist: "It is working"
-    };
-
-    ffmetadata.write(audioFilePath, data, function (err: any) {
-        if (err) {
-            console.error(`Cannot write data with ffmetadata to ${audioFilePath}.\n\n${err}`, err.stack);
-        } else {
-            console.log(`Succeeded in writing to ${audioFilePath}`);
-        }
-    })
-}*/
 
 /**
  * Parses the Node process arguments and returns provided files
