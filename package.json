@@ -4,7 +4,9 @@
         "start": "ts-node ./src/index.ts"
     },
     "dependencies": {
-        "ffmetadata": "^1.7.0"
+        "audd.io": "^3.0.2",
+        "ffmetadata": "^1.7.0",
+        "fluent-ffmpeg": "^2.1.2"
     },
     "devDependencies": {
         "@types/node": "^17.0.8",
