@@ -37,6 +37,11 @@ const ffmpeg = require('fluent-ffmpeg');
 
 audioFiles.forEach(doEverything);
 
+/**
+ * Takes original audio files, creates samples and then has these identified
+ * Once identified, it applies the identified metadata to the original file
+ * @param {string} audioFilePath - File path to the full, original audio file
+ */
 async function doEverything(audioFilePath: string) {
     const sample = await createSample(audioFilePath);
     const data = await identifySample(sample);
@@ -48,6 +53,12 @@ async function doEverything(audioFilePath: string) {
     }
 }
 
+/***
+ * Creates a 20 second sample of the original file
+ * This is needed, because the Audd.io API does not accept
+ * the full, large filesize audio files
+ * @param audioFilePath {string}
+ */
 async function createSample(audioFilePath: string): Promise<string> {
     const temporaryStorage = await createTmpDirectory();
 
@@ -65,10 +76,20 @@ async function createSample(audioFilePath: string): Promise<string> {
     });
 }
 
+/**
+ * Calls the Audd.io music recognition API
+ * @param {string} sampleFilePath - file path to the music file which needs to be identified
+ * @returns {AuddResponse}
+ */
 async function identifySample(sampleFilePath: string): Promise<AuddResponse> {
     return audd.recognize.fromFile(sampleFilePath)
 }
 
+/**
+ * Adds the retrieved metadata file to the original audio file
+ * @param {string} originalFilePath - The file path to the original music file
+ * @param {AuddResult} metadata - The metadata returned by the Audd.io music recognition API. The result can be null.
+ */
 async function addAuddMetadataToFile(originalFilePath: string, metadata: AuddResult) {
     const { artist, title, album, label, release_date } = metadata;
 
@@ -86,6 +107,10 @@ async function addAuddMetadataToFile(originalFilePath: string, metadata: AuddRes
     })
 }
 
+/**
+ * Creates a tmp directory, used to store sample audio files
+ * @returns {Promise<string>} - the path to the tmp directory
+ */
 async function createTmpDirectory() {
     if (tmpDirectory) {
         return tmpDirectory;
