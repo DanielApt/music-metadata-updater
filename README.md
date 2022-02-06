@@ -19,6 +19,8 @@ You will need:
 
 ## Architecture
 
+[![](https://mermaid.ink/img/pako:eNptkctKBDEQRX-lqJUyMyIusxho1IULUZxtb8pOdVuQx5iHMAzz71Y_FJHOqhLOubkkZ-yiZTSY-bNy6PhBaEjk2wC6XpIMEsgBVSsRenG82-83B_JHx9PWwH1iKgx3t5C5i8FOx7P-hxu1plp7I1EVcg58zdJBUmcIUiQGaF6fZm8B1dmtNDDQWLvongtZKgRX0gN9kTh6d3z9P2bzvHaZBmnyKXOGPDWdtVV27PLb_41LTWGpIKGPydMI4hY96yxWH_Q8prVYPthzi0ZHyz1VV1psw0XRetTm_GilxISmJ5d5i1RLPJxCh6akyj_Q8ikLdfkG9jSUyA)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNptkctKBDEQRX-lqJUyMyIusxho1IULUZxtb8pOdVuQx5iHMAzz71Y_FJHOqhLOubkkZ-yiZTSY-bNy6PhBaEjk2wC6XpIMEsgBVSsRenG82-83B_JHx9PWwH1iKgx3t5C5i8FOx7P-hxu1plp7I1EVcg58zdJBUmcIUiQGaF6fZm8B1dmtNDDQWLvongtZKgRX0gN9kTh6d3z9P2bzvHaZBmnyKXOGPDWdtVV27PLb_41LTWGpIKGPydMI4hY96yxWH_Q8prVYPthzi0ZHyz1VV1psw0XRetTm_GilxISmJ5d5i1RLPJxCh6akyj_Q8ikLdfkG9jSUyA)
+
 ```mermaid
 sequenceDiagram
     Original audio file->>+Sample file: Create 20 second file
